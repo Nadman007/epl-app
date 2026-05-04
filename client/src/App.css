@@ -1,0 +1,165 @@
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-12px) rotate(1deg); }
+  66% { transform: translateY(-6px) rotate(-1deg); }
+}
+
+@keyframes orb-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(30px, -20px) scale(1.05); }
+  50% { transform: translate(-20px, 30px) scale(0.95); }
+  75% { transform: translate(20px, 20px) scale(1.02); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.bg-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-orb-1 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(56,189,248,0.12) 0%, transparent 70%);
+  top: -100px; left: -150px;
+  animation: orb-drift 20s ease-in-out infinite;
+}
+
+.bg-orb-2 {
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(245,158,11,0.08) 0%, transparent 70%);
+  bottom: -200px; right: -200px;
+  animation: orb-drift 25s ease-in-out infinite reverse;
+}
+
+.bg-orb-3 {
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%);
+  top: 40%; left: 50%;
+  transform: translate(-50%, -50%);
+  animation: orb-drift 18s ease-in-out infinite;
+  animation-delay: -7s;
+}
+
+.dot-grid {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: radial-gradient(circle, rgba(148,163,184,0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.side-decoration {
+  position: fixed;
+  top: 0; bottom: 0;
+  width: 240px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.side-decoration-left {
+  left: 0;
+  border-right: 1px solid rgba(56,189,248,0.07);
+  background: linear-gradient(180deg, transparent 0%, rgba(56,189,248,0.025) 40%, rgba(56,189,248,0.025) 60%, transparent 100%);
+}
+
+.side-decoration-right {
+  right: 0;
+  border-left: 1px solid rgba(245,158,11,0.07);
+  background: linear-gradient(180deg, transparent 0%, rgba(245,158,11,0.02) 40%, rgba(245,158,11,0.02) 60%, transparent 100%);
+}
+
+.side-panel {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 190px;
+  pointer-events: none;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 18px;
+}
+
+.side-panel-left  { left: 0; }
+.side-panel-right { right: 0; }
+
+.side-stat {
+  background: rgba(10, 15, 30, 0.75);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 10px;
+  padding: 11px 13px;
+  backdrop-filter: blur(16px);
+  animation: fadeInUp 0.5s ease both;
+}
+
+.side-stat:nth-child(1) { animation-delay: 0.1s; }
+.side-stat:nth-child(2) { animation-delay: 0.2s; }
+.side-stat:nth-child(3) { animation-delay: 0.3s; }
+.side-stat:nth-child(4) { animation-delay: 0.4s; }
+
+.side-stat-left  { border-left: 2px solid rgba(56,189,248,0.5); }
+.side-stat-right { border-right: 2px solid rgba(245,158,11,0.5); text-align: right; }
+
+.side-stat-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #475569;
+  margin-bottom: 3px;
+}
+
+.side-stat-value {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #f1f5f9;
+  line-height: 1;
+}
+
+.side-stat-sub {
+  font-size: 0.68rem;
+  color: #64748b;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.accent-blue  { color: #38bdf8; }
+.accent-gold  { color: #f59e0b; }
+.accent-green { color: #22c55e; }
+.accent-red   { color: #ef4444; }
+
+.deco-ball {
+  position: fixed;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.07;
+  animation: float 9s ease-in-out infinite;
+  font-size: 2rem;
+}
+
+.deco-ball-1 { bottom: 18%; left: 35px;  animation-delay: 0s;    font-size: 2.5rem; }
+.deco-ball-2 { top: 28%;    right: 45px; animation-delay: -3.5s; font-size: 1.4rem; }
+.deco-ball-3 { bottom: 40%; right: 35px; animation-delay: -6s;   font-size: 2rem;   }
+.deco-ball-4 { top: 60%;    left: 45px;  animation-delay: -4.5s; font-size: 1.2rem; }
+
+.app-content {
+  position: relative;
+  z-index: 3;
+  animation: fadeInUp 0.4s ease both;
+}

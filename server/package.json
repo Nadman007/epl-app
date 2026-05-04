@@ -1,0 +1,16 @@
+{
+  "name": "epl-dashboard-server",
+  "version": "1.0.0",
+  "description": "Express proxy server for EPL Dashboard",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "dependencies": {
+    "axios": "^1.14.0"
+  }
+}
